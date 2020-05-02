@@ -1,0 +1,41 @@
+import React, { useState } from 'react';
+import './App.css';
+import Person from './Person/Person'
+
+const app = () => {
+
+   const [personState,setPersonState] = useState({
+    persons : [
+    {name:"Siva",age:20},
+    {name:"Ganesh",age:19}
+   ],
+   otherState:'Just Checking'
+  });
+
+  const [otherState,otherSetState] = useState({otherValue:'Some Other Value'});
+
+   console.log(personState,otherState);
+
+  const switchNameHandler = () =>{
+    setPersonState( {
+      persons : [
+        {name:"Siva Baahubali",age:20},
+        {name:"Ganesh",age:18}
+   ]
+    })
+  }
+
+
+    return (
+      <div className="App">
+        <h1>Hiii This is Siva Baahubali  </h1>
+        <p> Welcome to Siva World</p>
+        <button onClick={switchNameHandler}>switch button</button>                                                                       
+        <Person name={personState.persons[0].name} age={personState.persons[0].age} /> 
+        <Person name={personState.persons[1].name}  age={personState.persons[1].age}> Hobbies: Coding </Person>                                                                                    
+      </div>    
+    );
+  }
+
+export default app;
+
